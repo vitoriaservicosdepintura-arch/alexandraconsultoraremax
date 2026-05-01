@@ -21,9 +21,17 @@ export default function CtaFinal() {
     const name = (form.elements.namedItem('userName') as HTMLInputElement).value;
     const email = (form.elements.namedItem('userEmail') as HTMLInputElement).value;
     const phone = (form.elements.namedItem('userPhone') as HTMLInputElement).value;
-    const interestLabel = categories.find(cat => cat.id === selectedCategory)?.label || selectedCategory;
 
-    const message = `Olá Alexandra! 👋%0A%0AVim pelo site: *alexandraconsultoraremax.vercel.app*%0A%0A*Dados do Cliente:*%0A👤 Nome: ${name}%0A📧 Email: ${email}%0A📞 Telefone: ${phone}%0A%0A*Interesse:*%0A📌 ${interestLabel.toUpperCase()}`;
+    const categoryIcons: { [key: string]: string } = {
+      compra: '🏠 COMPRA',
+      venda: '💰 VENDA',
+      investir: '📈 INVESTIR',
+      info: 'ℹ️ MAIS INFORMAÇÕES'
+    };
+
+    const interestText = categoryIcons[selectedCategory] || selectedCategory.toUpperCase();
+
+    const message = `Olá Alexandra! 👋%0A%0AVim pelo site: *alexandraconsultoraremax.vercel.app*%0A%0A*Dados do Cliente:*%0A👤 Nome: ${name}%0A📧 Email: ${email}%0A📞 Telefone: ${phone}%0A%0A*Interesse:*%0A📌 ${interestText}`;
 
     window.open(`https://wa.me/351968211120?text=${message}`, '_blank');
   };
