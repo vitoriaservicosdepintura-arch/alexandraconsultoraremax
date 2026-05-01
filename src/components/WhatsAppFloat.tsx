@@ -56,7 +56,7 @@ export default function WhatsAppFloat() {
                             {/* Foto */}
                             <div style={{ position: 'relative', flexShrink: 0 }}>
                                 <img
-                                    src="/images/alexandra.png"
+                                    src="/images/alexandra-hero.png"
                                     alt="Alexandra Moreira"
                                     style={{
                                         width: 56,

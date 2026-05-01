@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { BarChart3, Megaphone, Users, Key } from 'lucide-react';
 
@@ -52,7 +52,7 @@ export default function Servicos() {
   const ref = useRef<HTMLElement>(null);
   const [sectionRef, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  useScroll({ target: ref, offset: ['start end', 'end start'] });
 
   return (
     <section
@@ -80,7 +80,7 @@ export default function Servicos() {
           <motion.h2 initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#fff', marginTop: 12, marginBottom: 16, lineHeight: 1.1 }}>
             Como posso{' '}
-            <span style={{ background: 'linear-gradient(135deg, #C9A96E, #E2C48A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Ajudar Você?</span>
+            <span style={{ background: 'linear-gradient(135deg, #C9A96E, #E2C48A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Ajudar ?</span>
           </motion.h2>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}
