@@ -32,7 +32,7 @@ export default function Hero() {
       ref={ref}
       id="hero"
       className="bg-hero-gradient"
-      style={{ height: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 72, boxSizing: 'border-box' }}
+      style={{ minHeight: '100vh', height: 'auto', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 100, paddingBottom: 60, boxSizing: 'border-box' }}
     >
       {/* Ambient orbs */}
       <motion.div style={{ position: 'absolute', top: 80, right: 0, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,51,160,0.06) 0%, transparent 70%)', pointerEvents: 'none', x: mouseX, y: mouseY }} />
@@ -116,7 +116,7 @@ export default function Hero() {
               <div className="animate-morph" style={{ width: 'min(640px, 55vw)', height: 'min(750px, 80vh)', background: 'linear-gradient(135deg, rgba(0,51,160,0.08), rgba(114,47,55,0.08))' }} />
             </div>
 
-            <motion.div style={{ position: 'relative', zIndex: 10, x: mouseX, y: mouseY }}>
+            <motion.div style={{ position: 'relative', zIndex: 10, x: typeof window !== 'undefined' && window.innerWidth > 768 ? mouseX : 0, y: typeof window !== 'undefined' && window.innerWidth > 768 ? mouseY : 0 }}>
               {/* Decorative ring */}
               <div style={{ position: 'absolute', inset: -16, borderRadius: 24, border: '2px solid #C9A96E', opacity: 0.2 }} />
 
@@ -172,15 +172,17 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
-          .hero-grid-main { grid-template-columns: 1fr !important; gap: 20px !important; }
-          .hero-photo-col { order: -1; min-height: 420px; padding-top: 40px; }
-          .hero-text-col  { order: 1; text-align: center; align-items: center; padding-top: 20px !important; }
-          .hero-text-col p { margin-left: auto; margin-right: auto; }
+          .hero-grid-main { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .hero-photo-col { order: -1; min-height: 480px; padding-top: 20px; }
+          .hero-text-col  { order: 1; text-align: center; align-items: center; padding: 20px !important; }
+          .hero-text-col h1 { font-size: 1.8rem !important; }
+          .hero-text-col p { font-size: 0.9rem !important; margin-left: auto; margin-right: auto; }
           .hero-logo-overlap { 
             left: 50% !important; 
-            bottom: -30px !important; 
+            bottom: -20px !important; 
             transform: translateX(-50%) !important;
-            width: 260px !important;
+            width: 220px !important;
+            z-index: 50 !important;
           }
           .hero-logo-overlap img { width: 100% !important; }
         }

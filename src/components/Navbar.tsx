@@ -36,11 +36,12 @@ export default function Navbar() {
       >
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px', pointerEvents: 'auto' }}>
           <div
+            className="fixed-container"
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               height: scrolled ? 68 : 88,
               padding: '0 32px',
-              background: scrolled ? 'rgba(255, 255, 255, 0.8)' : 'transparent',
+              background: scrolled ? 'rgba(255, 255, 255, 0.92)' : 'transparent',
               backdropFilter: scrolled ? 'blur(16px)' : 'none',
               borderRadius: scrolled ? 80 : 0,
               boxShadow: scrolled ? '0 20px 40px rgba(0, 0, 0, 0.08)' : 'none',
@@ -52,6 +53,7 @@ export default function Navbar() {
             {/* Logo */}
             <motion.div
               onClick={() => go('hero')}
+              className="navbar-logo-container"
               style={{
                 cursor: 'pointer',
                 position: 'absolute',
@@ -131,10 +133,10 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             style={{
-              position: 'fixed', top: scrolled ? 90 : 88, left: 24, right: 24, zIndex: 49,
-              background: 'rgba(0, 51, 160, 0.95)', backdropFilter: 'blur(16px)',
+              position: 'fixed', top: scrolled ? 80 : 88, left: 16, right: 16, zIndex: 100,
+              background: '#0033A0',
               padding: '24px', borderRadius: 24,
-              boxShadow: '0 25px 60px rgba(0,0,0,0.4)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.5)',
             }}
           >
             {navLinks.map(link => (
@@ -171,7 +173,9 @@ export default function Navbar() {
         @media (max-width: 768px) {
           .desktop-nav  { display: none !important; }
           .mobile-burger{ display: block !important; }
-          .navbar-logo-img { height: ${scrolled ? '55px' : '75px'} !important; }
+          .navbar-logo-img { height: ${scrolled ? '50px' : '65px'} !important; }
+          .navbar-logo-container { position: relative !important; left: 0 !important; }
+          .fixed-container { padding: 0 16px !important; }
         }
         .nav-link-btn::after {
           content: '';
