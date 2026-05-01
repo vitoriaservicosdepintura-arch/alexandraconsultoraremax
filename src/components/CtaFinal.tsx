@@ -4,8 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import { Phone, Mail, User, Home, BadgeDollarSign, BarChart3, MessageCircle, Clock, Globe } from 'lucide-react';
 
 const categories = [
-  { id: 'compra', label: 'Compra', icon: <Home size={18} /> },
-  { id: 'venda', label: 'Venda', icon: <BadgeDollarSign size={18} /> },
+  { id: 'compra', label: 'Comprar', icon: <Home size={18} /> },
+  { id: 'venda', label: 'Vender', icon: <BadgeDollarSign size={18} /> },
   { id: 'investir', label: 'Investir', icon: <BarChart3 size={18} /> },
   { id: 'info', label: 'Mais Informações', icon: <MessageCircle size={18} /> },
 ];
