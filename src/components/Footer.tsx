@@ -25,7 +25,7 @@ export default function Footer() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}>
             <h4 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 20 }}>Navegação</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {[['hero', 'Início'], ['autoridade', 'Sobre a Alexandra'], ['servicos', 'Serviços'], ['dashboard', 'Resultados'], ['contacto', 'Contacto']].map(([id, label]) => (
+              {[['hero', 'Início'], ['autoridade', 'Sobre a Alexandra'], ['servicos', 'Serviços'], ['contacto', 'Contacto']].map(([id, label]) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}

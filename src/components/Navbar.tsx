@@ -6,7 +6,6 @@ const navLinks = [
   { label: 'Início', href: 'hero' },
   { label: 'Sobre Mim', href: 'autoridade' },
   { label: 'Serviços', href: 'servicos' },
-  { label: 'Resultados', href: 'dashboard' },
   { label: 'Contacto', href: 'contacto' },
 ];
 
