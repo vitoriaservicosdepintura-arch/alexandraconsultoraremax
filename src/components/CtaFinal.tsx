@@ -55,6 +55,7 @@ export default function CtaFinal() {
         <img
           src="/images/alexandra-hero.png"
           alt=""
+          className="cta-photo-bg"
           style={{
             position: 'absolute', right: 0, bottom: 0, height: '100%', objectFit: 'cover', objectPosition: 'top', maxWidth: '45%',
             maskImage: 'linear-gradient(to left, rgba(0,0,0,0.5) 0%, transparent 100%)',
@@ -219,7 +220,13 @@ export default function CtaFinal() {
       <style>{`
         @media (max-width: 900px) {
           .cta-grid { grid-template-columns: 1fr !important; gap: 48px; }
-          .cta-grid > div { max-width: 100% !important; }
+          .cta-grid > div { max-width: 100% !important; text-align: center; }
+          .divider-gold { margin: 0 auto 28px !important; }
+          .contact-info-grid-small { grid-template-columns: 1fr !important; gap: 16px !important; text-align: left; }
+          .cta-photo-bg { maxWidth: 100% !important; opacity: 0.15 !important; }
+        }
+        @media (max-width: 480px) {
+          .cta-grid > div h2 { font-size: 1.8rem !important; }
         }
         .animate-pulse-slow {
           animation: pulse-border 4s infinite ease-in-out;

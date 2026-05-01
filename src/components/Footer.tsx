@@ -15,7 +15,7 @@ export default function Footer() {
 
           {/* Logo col */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-            <img src="/images/remax-logo.png" alt="RE/MAX DinâmicaDaire" style={{ height: 100, width: 'auto', objectFit: 'contain', marginBottom: 24, filter: 'brightness(1.2)' }} />
+            <img src="/images/remax-logo.png" alt="RE/MAX DinâmicaDaire" className="footer-logo-main" style={{ height: 100, width: 'auto', objectFit: 'contain', marginBottom: 24, filter: 'brightness(1.2)' }} />
             <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, margin: 0 }}>
               Equipa José Ferreira & Alexandra Moreira — comprometida com a excelência no mercado imobiliário.
             </p>
@@ -44,7 +44,7 @@ export default function Footer() {
           {/* Contact col */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
             <h4 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: 20 }}>Contactos</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px 24px' }}>
+            <ul className="footer-contacts-grid" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px 24px' }}>
               {[
                 { icon: <Phone size={13} />, href: 'tel:+351968211120', text: '+351 968 211 120', bg: 'rgba(218,41,28,0.15)', color: '#DA291C' },
                 { icon: <Mail size={13} />, href: 'mailto:um.alexandaras@gmail.com', text: 'um.alexandaras@gmail.com', bg: 'rgba(0,51,160,0.15)', color: '#0033A0' },
@@ -87,6 +87,7 @@ export default function Footer() {
 
         <motion.div
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.4 }}
+          className="footer-bottom-bar"
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 28, borderTop: '1px solid rgba(255,255,255,0.06)', flexWrap: 'wrap', gap: 24 }}
         >
           <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: '0.72rem', color: 'rgba(255,255,255,0.25)', margin: 0 }}>
@@ -100,7 +101,12 @@ export default function Footer() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; } }
+        @media (max-width: 768px) { 
+          .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center; } 
+          .footer-contacts-grid { grid-template-columns: 1fr !important; }
+          .footer-bottom-bar { justify-content: center !important; text-align: center; gap: 32px !important; }
+          .footer-logo-main { margin: 0 auto 24px !important; }
+        }
       `}</style>
     </footer>
   );

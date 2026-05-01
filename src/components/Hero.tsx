@@ -172,15 +172,17 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 768px) {
-          .hero-grid-main { grid-template-columns: 1fr !important; }
-          .hero-photo-col { order: -1; min-height: 360px; }
-          .hero-text-col  { order: 1; }
+          .hero-grid-main { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .hero-photo-col { order: -1; min-height: 420px; padding-top: 40px; }
+          .hero-text-col  { order: 1; text-align: center; align-items: center; padding-top: 20px !important; }
+          .hero-text-col p { margin-left: auto; margin-right: auto; }
           .hero-logo-overlap { 
             left: 50% !important; 
-            bottom: -20px !important; 
+            bottom: -30px !important; 
             transform: translateX(-50%) !important;
-            scale: 0.8;
+            width: 260px !important;
           }
+          .hero-logo-overlap img { width: 100% !important; }
         }
       `}</style>
     </section>

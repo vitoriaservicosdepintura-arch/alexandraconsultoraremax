@@ -66,12 +66,13 @@ export default function Navbar() {
               <img
                 src="/images/remax-logo.png"
                 alt="RE/MAX"
+                className="navbar-logo-img"
                 style={{
                   height: scrolled ? 110 : 150,
                   width: 'auto',
                   objectFit: 'contain',
                   filter: 'drop-shadow(0 8px 20px rgba(0,0,0,0.25))',
-                  transition: 'height 0.4s ease'
+                  transition: 'all 0.4s ease'
                 }}
               />
             </motion.div>
@@ -170,6 +171,7 @@ export default function Navbar() {
         @media (max-width: 768px) {
           .desktop-nav  { display: none !important; }
           .mobile-burger{ display: block !important; }
+          .navbar-logo-img { height: ${scrolled ? '55px' : '75px'} !important; }
         }
         .nav-link-btn::after {
           content: '';

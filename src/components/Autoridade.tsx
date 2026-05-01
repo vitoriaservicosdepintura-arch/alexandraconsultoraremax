@@ -17,8 +17,10 @@ export default function Autoridade() {
   const [sectionRef, inView] = useInView({ triggerOnce: true, threshold: 0.08 });
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const photoX = useTransform(scrollYProgress, [0, 1], ['-4%', '4%']);
-  const textX = useTransform(scrollYProgress, [0, 1], ['4%', '-4%']);
+
+  // No Desktop: movimento lateral. No Mobile: movimento reduzido ou nulo.
+  const photoX = useTransform(scrollYProgress, [0, 1], ['-3%', '3%']);
+  const textX = useTransform(scrollYProgress, [0, 1], ['3%', '-3%']);
 
   return (
     <section ref={ref} id="autoridade" style={{ background: '#F5F5F0', position: 'relative', overflow: 'hidden', padding: '0' }}>
@@ -60,6 +62,7 @@ export default function Autoridade() {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
+                className="authority-balloon"
                 style={{
                   position: 'absolute',
                   top: -60,
@@ -157,8 +160,10 @@ export default function Autoridade() {
 
       <style>{`
         @media (max-width: 768px) {
-          .authority-main-grid { grid-template-columns: 1fr !important; }
+          .authority-main-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
           .stats-grid           { grid-template-columns: 1fr 1fr !important; }
+          .authority-balloon    { width: 280px !important; left: -40px !important; top: -40px !important; }
+          .authority-photo-container { scale: 0.95; }
         }
       `}</style>
     </section>
