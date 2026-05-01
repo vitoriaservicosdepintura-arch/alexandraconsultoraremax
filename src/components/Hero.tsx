@@ -134,6 +134,27 @@ export default function Hero() {
               <motion.div
                 className="hero-logo-overlap"
                 style={{ position: 'absolute', left: -160, bottom: -60, zIndex: 30 }}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={{ 
+                  opacity: 1, 
+                  scale: 1, 
+                  y: [0, -10, 0],
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))',
+                  transition: { duration: 0.3 }
+                }}
+                transition={{ 
+                  opacity: { duration: 0.8, delay: 0.6 },
+                  scale: { duration: 0.8, delay: 0.6 },
+                  y: { 
+                    duration: 4, 
+                    repeat: Infinity, 
+                    ease: "easeInOut",
+                    delay: 1.2
+                  }
+                }}
               >
                 <img
                   src="/images/remax-logo.png"
