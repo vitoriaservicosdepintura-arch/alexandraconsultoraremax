@@ -6,8 +6,8 @@ import { BarChart3, Megaphone, Users, Key } from 'lucide-react';
 const services = [
   { icon: <BarChart3 size={32} />, number: '01', title: 'Avaliação Estratégica', color: '#0033A0', delay: 0.10, desc: 'Análise realista e assertiva do valor do imóvel, com estudo comparativo de mercado e potencial de negócio. Dados concretos para decisões seguras.' },
   { icon: <Megaphone size={32} />, number: '02', title: 'Marketing de Alto Impacto', color: '#DA291C', delay: 0.20, desc: 'Exposição profissional do imóvel através das plataformas RE/MAX, fotografia de qualidade e posicionamento digital direcionado ao público certo.' },
-  { icon: <Users size={32} />, number: '03', title: 'Visitação Qualificada', color: '#722F37', delay: 0.30, desc: 'Acompanhamento próximo em cada visita, com filtragem de interessados sérios para otimizar o seu tempo e garantir resultados concretos.' },
-  { icon: <Key size={32} />, number: '04', title: 'Fechamento Seguro', color: '#C9A96E', delay: 0.40, desc: 'Acompanhamento jurídico e administrativo completo, garantindo uma transação tranquila e sem surpresas até à entrega das chaves.' },
+  { icon: <Users size={32} />, number: '03', title: 'Visita Qualificada', color: '#722F37', delay: 0.30, desc: 'Acompanhamento próximo em cada visita, com filtragem de interessados sérios para otimizar o seu tempo e garantir resultados concretos.' },
+  { icon: <Key size={32} />, number: '04', title: 'Fecho Seguro', color: '#C9A96E', delay: 0.40, desc: 'Acompanhamento jurídico e administrativo completo, garantindo uma transação tranquila e sem surpresas até à entrega das chaves.' },
 ];
 
 function ServiceCard({ icon, number, title, color, delay, desc, inView }: { icon: React.ReactNode; number: string; title: string; color: string; delay: number; desc: string; inView: boolean }) {
@@ -74,13 +74,13 @@ export default function Servicos() {
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <motion.span initial={{ opacity: 0, y: -20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: '0.68rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A96E' }}>
-            O SERVIÇO
+            Como posso Ajudar ?
           </motion.span>
 
           <motion.h2 initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.1 }}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#fff', marginTop: 12, marginBottom: 16, lineHeight: 1.1 }}>
-            Como Vou{' '}
-            <span style={{ background: 'linear-gradient(135deg, #C9A96E, #E2C48A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Ajudar Você</span>
+            Como posso{' '}
+            <span style={{ background: 'linear-gradient(135deg, #C9A96E, #E2C48A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Ajudar Você?</span>
           </motion.h2>
 
           <motion.p initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}

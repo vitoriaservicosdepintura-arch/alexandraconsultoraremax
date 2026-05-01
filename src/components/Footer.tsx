@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Phone, Mail, Globe } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -65,6 +65,12 @@ export default function Footer() {
                   href: 'https://remax.pt/pt/agente/alexandra-moreira/126421025',
                   text: 'Perfil RE/MAX',
                   bg: 'rgba(201,169,110,0.1)', color: '#C9A96E'
+                },
+                {
+                  icon: <MapPin size={13} />,
+                  href: 'https://maps.google.com/?q=RE+MAX+Dinamica+Daire+Rua+Padre+Americo+3B+3600-132+Castro+Daire',
+                  text: 'RE/MAX Dinâmica Daire · Rua Padre Américo, nº 3 B · 3600-132, Castro Daire',
+                  bg: 'rgba(218,41,28,0.12)', color: '#DA291C'
                 },
               ].map((c, i) => (
                 <li key={i}>
