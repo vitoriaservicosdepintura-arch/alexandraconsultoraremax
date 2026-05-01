@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { ChevronDown, Phone, Star } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -135,22 +135,29 @@ export default function Hero() {
                 className="hero-logo-overlap"
                 style={{ position: 'absolute', left: -160, bottom: -60, zIndex: 30 }}
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1, 
-                  y: [0, -10, 0],
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -15, 0],
+                  rotate: [0, 2, 0, -2, 0]
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
-                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))',
+                  filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3)) brightness(1.05)',
                   transition: { duration: 0.3 }
                 }}
-                transition={{ 
+                transition={{
                   opacity: { duration: 0.8, delay: 0.6 },
                   scale: { duration: 0.8, delay: 0.6 },
-                  y: { 
-                    duration: 4, 
-                    repeat: Infinity, 
+                  y: {
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1.2
+                  },
+                  rotate: {
+                    duration: 8,
+                    repeat: Infinity,
                     ease: "easeInOut",
                     delay: 1.2
                   }
@@ -159,6 +166,7 @@ export default function Hero() {
                 <img
                   src="/images/remax-logo.png"
                   alt="RE/MAX Logo"
+                  className="hero-logo-img"
                   style={{ width: 340, height: 'auto', display: 'block', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.2))' }}
                 />
               </motion.div>
@@ -182,18 +190,20 @@ export default function Hero() {
       <style>{`
         @media (max-width: 768px) {
           .hero-grid-main { grid-template-columns: 1fr !important; gap: 32px !important; }
-          .hero-photo-col { order: -1; min-height: 480px; padding-top: 20px; }
+          .hero-photo-col { order: -1; min-height: 520px; padding-top: 20px; position: relative; }
           .hero-text-col  { order: 1; text-align: center; align-items: center; padding: 20px !important; }
           .hero-text-col h1 { font-size: 1.8rem !important; }
           .hero-text-col p { font-size: 0.9rem !important; margin-left: auto; margin-right: auto; }
           .hero-logo-overlap { 
-            left: 50% !important; 
-            bottom: -20px !important; 
-            transform: translateX(-50%) !important;
-            width: 220px !important;
+            left: 0 !important; 
+            bottom: 32px !important; 
             z-index: 50 !important;
           }
-          .hero-logo-overlap img { width: 100% !important; }
+          .hero-logo-img { 
+            width: clamp(280px, 72vw, 400px) !important;
+            height: auto !important;
+            filter: drop-shadow(0 12px 28px rgba(0,0,0,0.3)) !important;
+          }
         }
       `}</style>
     </section>
