@@ -108,7 +108,7 @@ export default function CtaFinal() {
             >
               <Clock size={16} color="#E2C48A" />
               <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: '0.82rem', color: '#E2C48A' }}>
-                As grandes oportunidades do mercado são únicas. Fale connosco hoje.
+                As grandes oportunidades do mercado são únicas. Fale conosco hoje.
               </span>
             </motion.div>
 
