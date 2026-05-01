@@ -9,6 +9,7 @@ import Dashboard3D from './components/Dashboard3D';
 import Depoimentos from './components/Depoimentos';
 import CtaFinal from './components/CtaFinal';
 import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -52,6 +53,9 @@ export default function App() {
       </main>
 
       <Footer />
+
+      {/* WhatsApp floating button */}
+      <WhatsAppFloat />
 
       {/* Global font import */}
       <style>{`
