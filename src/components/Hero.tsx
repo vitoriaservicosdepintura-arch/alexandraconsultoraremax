@@ -41,12 +41,7 @@ export default function Hero() {
       {/* Dots */}
       <div className="dots-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.4, pointerEvents: 'none' }} />
 
-      {/* Gold vertical line */}
-      <motion.div
-        style={{ position: 'absolute', left: 32, top: '50%', translateY: '-50%', width: 1, height: 192, background: 'linear-gradient(180deg, transparent, #C9A96E, transparent)' }}
-        initial={{ scaleY: 0 }} animate={{ scaleY: 1 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-      />
+
 
       <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 24px', width: '100%', position: 'relative', zIndex: 10 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 40, alignItems: 'center' }} className="hero-grid-main">
@@ -94,13 +89,6 @@ export default function Hero() {
 
 
 
-            {/* Stars */}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 1.1 }} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{ display: 'flex', gap: 4 }}>
-                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#C9A96E" color="#C9A96E" />)}
-              </div>
-              <span style={{ fontSize: '0.8rem', color: '#888', fontFamily: 'Open Sans, sans-serif' }}>+200 clientes satisfeitos</span>
-            </motion.div>
           </motion.div>
 
           {/* RIGHT — Photo */}
