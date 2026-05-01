@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const WA_NUMBER = '351968211120';
@@ -6,27 +6,35 @@ const WA_MESSAGE = 'Olá Alexandra! 👋 Vim pelo site e gostaria de saber mais 
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 export default function WhatsAppFloat() {
-    const [hovered, setHovered] = useState(false);
+    const [showCard, setShowCard] = useState(false);
+    const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    /* ---------- Helpers ---------- */
+    const show = () => {
+        if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+        setShowCard(true);
+    };
+
+    const hide = () => {
+        setShowCard(false);
+    };
+
+    // On touch devices: show on touchstart, hide after 2.5 s
+    const handleTouchStart = () => {
+        show();
+        hideTimerRef.current = setTimeout(() => setShowCard(false), 2500);
+    };
 
     return (
         <>
-            {/* Floating container */}
-            <div
-                style={{
-                    position: 'fixed',
-                    bottom: 32,
-                    right: 32,
-                    zIndex: 9998,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-end',
-                    gap: 12,
-                }}
-            >
-                {/* Hover card — foto + nome */}
+            {/* Floating wrapper */}
+            <div className="wa-float-wrapper">
+
+                {/* Hover / Touch card */}
                 <AnimatePresence>
-                    {hovered && (
+                    {showCard && (
                         <motion.div
+                            className="wa-card"
                             initial={{ opacity: 0, y: 12, scale: 0.9 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 12, scale: 0.9 }}
@@ -41,7 +49,8 @@ export default function WhatsAppFloat() {
                                 alignItems: 'center',
                                 gap: 14,
                                 boxShadow: '0 20px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,169,110,0.1)',
-                                minWidth: 230,
+                                minWidth: 220,
+                                marginBottom: 12,
                             }}
                         >
                             {/* Foto */}
@@ -105,32 +114,20 @@ export default function WhatsAppFloat() {
                     )}
                 </AnimatePresence>
 
-                {/* Pulse rings */}
+                {/* Pulse rings + button */}
                 <div style={{ position: 'relative', width: 64, height: 64 }}>
-                    {/* Pulse ring 1 */}
-                    <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        borderRadius: '50%',
-                        background: 'rgba(37,211,102,0.25)',
-                        animation: 'wa-ping 2s cubic-bezier(0,0,0.2,1) infinite',
-                    }} />
-                    {/* Pulse ring 2 */}
-                    <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        borderRadius: '50%',
-                        background: 'rgba(37,211,102,0.15)',
-                        animation: 'wa-ping 2s cubic-bezier(0,0,0.2,1) infinite 0.75s',
-                    }} />
+                    <div className="wa-ring wa-ring-1" />
+                    <div className="wa-ring wa-ring-2" />
 
-                    {/* Main button */}
                     <motion.a
                         href={WA_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onHoverStart={() => setHovered(true)}
-                        onHoverEnd={() => setHovered(false)}
+                        /* Desktop hover */
+                        onHoverStart={show}
+                        onHoverEnd={hide}
+                        /* Mobile touch */
+                        onTouchStart={handleTouchStart}
                         whileHover={{ scale: 1.12 }}
                         whileTap={{ scale: 0.94 }}
                         style={{
@@ -147,7 +144,6 @@ export default function WhatsAppFloat() {
                         }}
                         aria-label="Contactar via WhatsApp"
                     >
-                        {/* WhatsApp SVG icon */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="30"
@@ -162,13 +158,48 @@ export default function WhatsAppFloat() {
             </div>
 
             <style>{`
+        /* === Wrapper === */
+        .wa-float-wrapper {
+          position: fixed;
+          bottom: 32px;
+          right: 32px;
+          z-index: 9998;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        /* === Mobile: move closer to edge === */
+        @media (max-width: 768px) {
+          .wa-float-wrapper {
+            bottom: 24px;
+            right: 12px;
+          }
+          .wa-card {
+            right: 0;
+            min-width: 200px !important;
+          }
+        }
+
+        /* === Pulse rings === */
+        .wa-ring {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+        }
+        .wa-ring-1 {
+          background: rgba(37, 211, 102, 0.25);
+          animation: wa-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        .wa-ring-2 {
+          background: rgba(37, 211, 102, 0.15);
+          animation: wa-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite 0.75s;
+        }
+
         @keyframes wa-ping {
           0%   { transform: scale(1);   opacity: 0.8; }
           70%  { transform: scale(2.2); opacity: 0;   }
           100% { transform: scale(2.2); opacity: 0;   }
-        }
-        @media (max-width: 480px) {
-          /* Move button slightly inward on small screens */
         }
       `}</style>
         </>
