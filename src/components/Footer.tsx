@@ -75,7 +75,7 @@ export default function Footer() {
               ].map((c, i) => (
                 <li key={i}>
                   <a
-                    href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
+                    href={c.href} target={c.href.startsWith('http') || c.href.startsWith('mailto:') ? '_blank' : undefined} rel="noopener noreferrer"
                     style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', fontFamily: 'Open Sans, sans-serif', fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}

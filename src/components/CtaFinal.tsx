@@ -124,7 +124,7 @@ export default function CtaFinal() {
                 { icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>, label: 'Facebook', value: 'Equipa Facebook', href: 'https://www.facebook.com/profile.php?id=61556151421865', hColor: '#1877F2' },
                 { icon: <Globe size={14} />, label: 'Website', value: 'Perfil RE/MAX', href: 'https://remax.pt/pt/agente/alexandra-moreira/126421025', hColor: '#C9A96E' },
               ].map((c, i) => (
-                <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, textDecoration: 'none' }}>
+                <a key={i} href={c.href} target={c.href.startsWith('http') || c.href.startsWith('mailto:') ? '_blank' : undefined} rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, textDecoration: 'none' }}>
                   <motion.div
                     whileHover={{ scale: 1.15, rotate: 8, backgroundColor: c.hColor, borderColor: 'rgba(255,255,255,0.4)' }}
                     style={{ flexShrink: 0, width: 34, height: 34, borderRadius: 10, background: 'rgba(255,255,255,0.1)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 2, border: '1px solid rgba(255,255,255,0.08)', transition: 'all 0.3s ease' }}
